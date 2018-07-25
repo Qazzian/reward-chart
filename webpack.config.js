@@ -1,16 +1,24 @@
+const path = require('path');
 const HtmlWebPackPlugin = require("html-webpack-plugin");
+
 
 const htmlPlugin = new HtmlWebPackPlugin({
 	template: "./src/index.html",
-	filename: "./index.html"
+	filename: "./index.html",
+	favicon: 'public/favicon.ico',
 });
 
 module.exports = {
-    output: {
-        path: __dirname + "/dist",
-        filename: "main.js",
-        publicPath: "/public/"
-    },
+	output: {
+		path: __dirname + "/dist",
+		filename: "main.js",
+		publicPath: '/'
+	},
+	devServer: {
+		contentBase: path.join(__dirname, 'public'),
+		historyApiFallback: true,
+		hot: true
+	},
 
 	module: {
 		rules: [
@@ -31,5 +39,7 @@ module.exports = {
 			}
 		]
 	},
-	plugins: [htmlPlugin]
+	plugins: [
+		htmlPlugin,
+	]
 };
