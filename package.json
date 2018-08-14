@@ -5,8 +5,7 @@
 	"scripts": {
 		"start": "react-scripts start",
 		"build": "react-scripts build",
-		"test": "react-scripts test --env=jsdom",
-		"test:debug": "react-scripts --inspect-brk test --runInBand --env=jsdom",
+		"test": "jest --watch",
 		"coverage": "react-scripts test --env=jsdom --coverage",
 		"eject": "react-scripts eject"
 	},
@@ -25,12 +24,13 @@
 	},
 	"dependencies": {
 		"express": "^4.16.3",
-		"node-sass": "^4.9.0",
+		"node-sass": "^4.9.2",
 		"proxy-middleware": "^0.15.0",
 		"react": "^16.4.0",
 		"react-dom": "^16.4.0",
 		"react-router-dom": "^4.3.1",
 		"react-scripts": "1.1.4",
+		"redux": "^4.0.0",
 		"sass-loader": "^7.0.3"
 	},
 	"devDependencies": {

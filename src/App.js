@@ -6,12 +6,10 @@ import NewChart from './components/newChart/NewChart';
 import Today from './components/Today';
 import Charts from './components/Charts';
 import More from './components/More';
-
-import ChartData from './data/ChartData';
-import LocalStorage from './data/LocalStorage';
+import AppState from './data/AppState';
 
 import {
-	BrowserRouter as Router,
+	BrowserRouter,
 	Route,
 } from 'react-router-dom';
 
@@ -33,35 +31,26 @@ class App extends Component {
 			charts: {},
 		};
 
-		this.chartData = new ChartData(new LocalStorage());
-
 		this.createNewChart = this.createNewChart.bind(this);
 	}
 
 	render() {
 		return (
-			<Router>
+			<BrowserRouter>
 				<div className="App">
 					<div className="container">
 						<Header/>
 						{this.state.charts ? <Routes/> : <NewChart createNewChart={this.createNewChart}/>}
 					</div>
 				</div>
-			</Router>
+			</BrowserRouter>
 		);
 	}
 
 	componentDidMount() {
-		this.chartData.getCharts().then((chartState) => {
-			this.setState({charts: chartState});
-		});
 	}
 
 	createNewChart(chartData) {
-		this.chartData.createChart(chartData).then((chartState) => {
-			debugger;
-			this.setState(chartState);
-		});
 	}
 }
 
