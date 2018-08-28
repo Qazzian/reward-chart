@@ -1,8 +1,4 @@
 export default class LocalStorage {
-	constructor() {
-
-	}
-
 	saveData(state) {
 		console.info('Save state: ', state);
 		window.localStorage.setItem('charts', JSON.stringify(state));
