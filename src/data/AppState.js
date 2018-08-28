@@ -1,8 +1,8 @@
 import { combineReducers } from 'redux';
 import ChartState from './ChartState';
 
-const todoApp = combineReducers({
+const AppState = combineReducers({
 	charts: ChartState,
 });
 
-export default todoApp
+export default AppState

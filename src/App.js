@@ -7,6 +7,7 @@ import Today from './components/Today';
 import Charts from './components/Charts';
 import More from './components/More';
 import AppState from './data/AppState';
+import ChartStore from './data/ChartStore';
 
 import {
 	BrowserRouter,
@@ -24,9 +25,11 @@ const Routes = () => {
 	);
 };
 
+
 class App extends Component {
 	constructor(props) {
 		super(props);
+		this.store = ChartStore(AppState);
 		this.state = {
 			charts: {},
 		};
@@ -35,6 +38,10 @@ class App extends Component {
 	}
 
 	render() {
+		return this.renderWithRoutes();
+	}
+
+	renderWithRoutes() {
 		return (
 			<BrowserRouter>
 				<div className="App">
