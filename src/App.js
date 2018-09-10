@@ -1,9 +1,10 @@
 import React, {Component} from 'react';
+import { Provider } from 'react-redux'
 import './App.scss';
 
 import Header from './components/header/Header';
 import NewChart from './components/newChart/NewChart';
-import Today from './components/Today';
+import Today from './Today/Today';
 import Charts from './components/Charts';
 import More from './components/More';
 import AppState from './data/AppState';
@@ -43,14 +44,17 @@ class App extends Component {
 
 	renderWithRoutes() {
 		return (
-			<BrowserRouter>
-				<div className="App">
-					<div className="container">
-						<Header/>
-						{this.state.charts ? <Routes/> : <NewChart createNewChart={this.createNewChart}/>}
+			<Provider store={this.store}>
+				<BrowserRouter>
+					<div className="App">
+						<div className="container">
+							<Header/>
+							{this.state.charts ? <Routes/> : <NewChartContainer/>}
+							<Footer/>
+						</div>
 					</div>
-				</div>
-			</BrowserRouter>
+				</BrowserRouter>
+			</Provider>
 		);
 	}
 
