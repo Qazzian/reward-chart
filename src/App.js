@@ -3,7 +3,8 @@ import { Provider } from 'react-redux'
 import './App.scss';
 
 import Header from './components/header/Header';
-import NewChart from './components/newChart/NewChart';
+import Footer from './components/Footer/Footer';
+import NewChartContainer from './components/newChart/NewChartContainer';
 import Today from './Today/Today';
 import Charts from './components/Charts';
 import More from './components/More';
@@ -20,6 +21,7 @@ const Routes = () => {
 		<div className="main">
 			<Route path="/" exact={true} component={Today}/>
 			<Route path="/today" component={Today}/>
+			<Route path="/new" component={NewChartContainer}/>
 			<Route path="/charts" component={Charts}/>
 			<Route path="/more" component={More}/>
 		</div>
