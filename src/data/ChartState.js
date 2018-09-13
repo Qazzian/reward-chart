@@ -1,13 +1,6 @@
 import * as chartActions from "./ChartActions";
 
-const initialState = [
-	{
-		id: 123,
-		name: 'Lydia\'s Bed time',
-		currentStreak: 2,
-		bestStreak: 4,
-	}
-];
+const initialState = [];
 
 export default function ChartState(state = initialState, action = {}) {
 	switch (action.type) {
@@ -15,6 +8,10 @@ export default function ChartState(state = initialState, action = {}) {
 			return addChart(state, action.data);
 		case chartActions.CHART_REMOVE:
 			return removeChart(state, action.id);
+		case chartActions.CHART_HAPPY:
+			return addHappy(state, action.id, action.date);
+		case chartActions.CHART_SAD:
+			return addSad(state, action.id, action.date);
 		default:
 			return state;
 	}
@@ -29,4 +26,30 @@ function removeChart(chartList, chartId) {
 	return chartList.filter((chart) => {
 		return chart.id !== chartId;
 	})
+}
+
+function addHappy(chartList, chartId, date) {
+	return addEmote(chartList, chartId, date, 'HAPPY');
+}
+
+
+function addSad(chartList, chartId, date) {
+	return addEmote(chartList, chartId, date, 'SAD');
+}
+
+function addEmote(chartList, chartId, date, emote) {
+	return chartList.map((chart) => {
+		if (chart.id === chartId) {
+			return addEmoteToChart(chart, date, emote);
+		}
+		return chart;
+	});
+}
+
+function addEmoteToChart(chart, date, emote) {
+	console.info('addEmoteToChart args: ', chart, date, emote);
+	const newEmote = {date, emote};
+	return Object.assign({}, chart, {
+		emotes: [newEmote]
+	});
 }

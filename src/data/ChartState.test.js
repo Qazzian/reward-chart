@@ -40,4 +40,13 @@ describe('Chart State', () => {
 		expect(thirdState.length).toBe(1);
 		done();
 	});
+
+	it('should Add a happy emote to a chart', (done) => {
+		const firstState = ChartState([], ChartActions.addChart({id: 123}));
+		const secondState = ChartState(firstState, ChartActions.chartHappy(123, 'date1'));
+		expect(secondState).toMatchSnapshot();
+		const thirdState = ChartState(secondState, ChartActions.chartSad(123, 'date2'));
+		expect(thirdState).toMatchSnapshot();
+		done();
+	});
 });
