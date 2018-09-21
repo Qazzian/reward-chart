@@ -52,19 +52,13 @@ class App extends Component {
 					<div className="App">
 						<div className="container">
 							<Header/>
-							{this.state.charts ? <Routes/> : <NewChartContainer/>}
+							<Routes/>
 							<Footer/>
 						</div>
 					</div>
 				</BrowserRouter>
 			</Provider>
 		);
-	}
-
-	componentDidMount() {
-	}
-
-	createNewChart(chartData) {
 	}
 }
 

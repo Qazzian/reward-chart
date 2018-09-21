@@ -4,9 +4,7 @@ import {Link} from 'react-router-dom';
 const Footer = () => {
 	return (
 		<nav>
-			<ul>
-				<li><Link to="/new">New Chart</Link></li>
-			</ul>
+			<Link to="/new">New Chart</Link>
 		</nav>
 	);
 };
