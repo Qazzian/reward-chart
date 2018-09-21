@@ -1,5 +1,6 @@
-import {createStore} from 'redux';
+import {createStore, applyMiddleware} from 'redux';
+import thunkMiddleware from 'redux-thunk'
 
-export default function createstoreFromState(appState) {
-	return createStore(appState);
+export default function createStoreFromState(appState, initialState) {
+	return createStore(appState, initialState, applyMiddleware(thunkMiddleware));
 }

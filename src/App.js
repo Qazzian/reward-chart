@@ -10,6 +10,7 @@ import Charts from './components/Charts';
 import More from './components/More';
 import AppState from './data/AppState';
 import ChartStore from './data/ChartStore';
+import {saveData, loadData} from './data/LocalStorage';
 
 import {
 	BrowserRouter,
@@ -32,12 +33,12 @@ const Routes = () => {
 class App extends Component {
 	constructor(props) {
 		super(props);
-		this.store = ChartStore(AppState);
-		this.state = {
-			charts: {},
-		};
+		const initialState = loadData();
 
-		this.createNewChart = this.createNewChart.bind(this);
+		this.store = ChartStore(AppState, initialState);
+		this.store.subscribe(() => {
+			saveData(this.store.getState());
+		})
 	}
 
 	render() {
