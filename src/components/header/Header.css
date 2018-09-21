@@ -1,0 +1,28 @@
+nav {
+  display: flex;
+  justify-content: space-around;
+  margin: 0;
+  padding: 0;
+}
+
+
+nav a,
+nav a:active,
+nav a:focus,
+nav a:hover,
+nav a:visited {
+  flex-grow: 1;
+  background-color: #dcb5ff;
+  color: #460086;
+  display: block;
+  padding: 1em;
+  text-decoration: none;
+}
+
+nav a:hover {
+  background-color: #cf70ff;
+}
+nav a:active {
+  background-color: #f3cfff;
+}
+

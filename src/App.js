@@ -1,6 +1,6 @@
 import React, {Component} from 'react';
 import { Provider } from 'react-redux'
-import './App.scss';
+import './App.css';
 
 import Header from './components/header/Header';
 import Footer from './components/Footer/Footer';
