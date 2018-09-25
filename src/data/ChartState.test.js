@@ -49,4 +49,9 @@ describe('Chart State', () => {
 		expect(thirdState).toMatchSnapshot();
 		done();
 	});
+
+	it('should give the chart an ID', (done) => {
+		expect(chart.id).toBe(1);
+		done();
+	});
 });

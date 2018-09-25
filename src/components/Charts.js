@@ -9,13 +9,6 @@ const Charts = ({match}) => {
 	return (
 		<div className="Charts">
 			<h1 className="display-3">Charts</h1>
-			<nav>
-				<ul>
-					<li><Link to={`${match.url}/html`}>HTML</Link></li>
-					<li><Link to={`${match.url}/css`}>CSS</Link></li>
-					<li><Link to={`${match.url}/react`}>React</Link></li>
-				</ul>
-			</nav>
 
 			<Route path={`${match.path}/:id`} component={Chart}/>
 		</div>

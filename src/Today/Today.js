@@ -4,7 +4,7 @@ import TodayContainer from './TodayContainer';
 const Today = () => {
 	return (
 		<div>
-			<h1 className="display-3">Today's records</h1>
+			<h1 className="todayHeader">Today's records</h1>
 			<TodayContainer />
 		</div>
 	);

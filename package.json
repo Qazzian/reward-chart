@@ -6,8 +6,10 @@
 		"start": "react-scripts start",
 		"build": "react-scripts build",
 		"test": "jest --watch",
-		"coverage": "react-scripts test --env=jsdom --coverage",
-		"eject": "react-scripts eject"
+		"coverage": "jest --coverage",
+		"eject": "react-scripts eject",
+		"build-css": "node-sass-chokidar src/ -o src/",
+		"watch-css": "npm run build-css && node-sass-chokidar src/ -o src/ --watch --recursive"
 	},
 	"jest": {
 		"moduleNameMapper": {
@@ -44,6 +46,7 @@
 		"babel-preset-react": "^6.24.1",
 		"css-loader": "^0.28.11",
 		"enzyme": "^3.3.0",
+		"enzyme-adapter-react-16": "^1.5.0",
 		"html-webpack-plugin": "^3.2.0",
 		"identity-obj-proxy": "^3.0.0",
 		"jest": "^23.1.0",

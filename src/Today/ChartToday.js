@@ -1,6 +1,8 @@
 import React from 'react';
 import './ChartToday.css';
 
+import bem from '../util/bem';
+
 const ChartToday = ({chart, onHappyClick, onSadClick}) => {
 	if (!chart) {
 		return null;
@@ -11,8 +13,8 @@ const ChartToday = ({chart, onHappyClick, onSadClick}) => {
 			<h2>{chart.name}</h2>
 			<div className={'chartToday__body'}>
 				<div className={'chartToday__state'}/>
-				<button className={'chartToday__happyButton'} onClick={() => onHappyClick(chart.id)}/>
-				<button className={'chartToday__sadButton'} onClick={() => onSadClick(chart.id)}/>
+				<button className={bem('chartToday', 'button', ['happy'])} onClick={() => onHappyClick(chart.id)}>&#x263a;</button>
+				<button className={bem('chartToday', 'button', ['sad'])} onClick={() => onSadClick(chart.id)}>&#x2639;</button>
 			</div>
 		</article>
 	)
