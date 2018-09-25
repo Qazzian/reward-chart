@@ -11,19 +11,6 @@
 		"build-css": "node-sass-chokidar src/ -o src/",
 		"watch-css": "npm run build-css && node-sass-chokidar src/ -o src/ --watch --recursive"
 	},
-	"jest": {
-		"moduleNameMapper": {
-			"\\.(css|less|scss)$": "<rootDir>/__mocks__/styleMock.js",
-			"\\.(gif|ttf|eot|svg)$": "<rootDir>/__mocks__/fileMock.js"
-		},
-		"moduleFileExtensions": [
-			"js",
-			"jsx"
-		],
-		"moduleDirectories": [
-			"node_modules"
-		]
-	},
 	"dependencies": {
 		"express": "^4.16.3",
 		"node-sass": "^4.9.2",
