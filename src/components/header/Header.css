@@ -3,6 +3,7 @@ nav {
   justify-content: space-around;
   margin: 0;
   padding: 0;
+  background-image: radial-gradient(circle at top right, #b452ff, #f3c179);
 }
 
 
@@ -12,17 +13,25 @@ nav a:focus,
 nav a:hover,
 nav a:visited {
   flex-grow: 1;
-  background-color: #dcb5ff;
-  color: #460086;
+  background: transparent;
+  /*background-color: #dcb5ff;*/
+  /*background-image: radial-gradient(circle, #dcb5ff,#bb90e2);*/
+  color: white;
   display: block;
   padding: 1em;
   text-decoration: none;
 }
 
-nav a:hover {
-  background-color: #cf70ff;
+nav a.isActive {
+  border-bottom: 2px solid white;
 }
-nav a:active {
-  background-color: #f3cfff;
-}
+
+/*nav a:hover {*/
+  /*background-color: #cf70ff;*/
+  /*background-image: radial-gradient(circle, #cf70ff,#bb90e2);*/
+/*}*/
+/*nav a:active {*/
+  /*background-color: #f3cfff;*/
+  /*background-image: radial-gradient(circle, #f3cfff,#bb90e2);*/
+/*}*/
 

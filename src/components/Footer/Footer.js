@@ -1,11 +1,13 @@
 import React from 'react';
-import {Link} from 'react-router-dom';
+import {NavLink} from 'react-router-dom';
+
+import './Footer.css';
 
 const Footer = () => {
 	return (
-		<nav>
-			<Link to="/new">New Chart</Link>
-		</nav>
+		<div className="footer">
+			<NavLink to="/new">New Chart</NavLink>
+		</div>
 	);
 };
 
