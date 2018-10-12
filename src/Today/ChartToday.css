@@ -3,4 +3,5 @@
   padding-bottom: 1em; }
   .chartToday__button {
     font-size: 60px;
-    background: transparent; }
+    background: transparent;
+    border: none; }
