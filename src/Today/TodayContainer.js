@@ -20,9 +20,9 @@ function mapDispatchToProps (dispatch) {
 	}
 }
 
-const ChartList = connect(
+const TodayContainer = connect(
 	mapStateToProps,
 	mapDispatchToProps
 )(TodayChartList);
 
-export default ChartList
+export default TodayContainer
