@@ -1,0 +1,29 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Chart State should Add a happy emote to a chart 1`] = `
+Array [
+  Object {
+    "emotes": Array [
+      Object {
+        "date": "date1",
+        "emote": "HAPPY",
+      },
+    ],
+    "id": 123,
+  },
+]
+`;
+
+exports[`Chart State should Add a happy emote to a chart 2`] = `
+Array [
+  Object {
+    "emotes": Array [
+      Object {
+        "date": "date2",
+        "emote": "SAD",
+      },
+    ],
+    "id": 123,
+  },
+]
+`;
