@@ -2,8 +2,7 @@ import React, {Component} from 'react';
 import { Provider } from 'react-redux'
 import './App.css';
 
-import Header from './components/header/Header';
-import Footer from './components/Footer/Footer';
+import PageTemplate from './components/PageTemplate';
 import NewChartContainer from './components/newChart/NewChartContainer';
 import Today from './Today/Today';
 import Charts from './components/Charts';
@@ -50,11 +49,9 @@ class App extends Component {
 			<Provider store={this.store}>
 				<BrowserRouter>
 					<div className="App">
-						<div className="container">
-							<Header/>
-							<Routes/>
-							<Footer/>
-						</div>
+            <PageTemplate>
+              <Routes/>
+            </PageTemplate>
 					</div>
 				</BrowserRouter>
 			</Provider>
