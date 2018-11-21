@@ -1,6 +1,6 @@
 import React, {Component} from 'react';
 import { Provider } from 'react-redux'
-import './App.css';
+import './App.scss';
 
 import PageTemplate from './components/PageTemplate';
 import NewChartContainer from './components/newChart/NewChartContainer';
