@@ -1,0 +1,24 @@
+.footer {
+  position: fixed;
+  bottom: 0;
+  width: 100%;
+  
+  &__newChartLink {
+    display: flex;
+    align-items: center;
+    
+    position: absolute;
+    height: 70px;
+    width: 70px;
+    bottom: 10px;
+    right: 10px;
+    
+    color: #480b67;
+    background-color: #f3b404;
+    border: 1px solid #ffc800;
+    border-radius: 100%;
+    justify-content: center;
+    text-align: center;
+    text-decoration: none;
+  }
+}

@@ -3,9 +3,13 @@ nav {
   justify-content: space-around;
   margin: 0;
   padding: 0;
-  background-image: radial-gradient(circle at top right, #b452ff, #f3c179);
+  background-image: radial-gradient(
+    circle 
+    at top right, 
+    #9928ef 0%, 
+    #f3a22e 120%
+    );
 }
-
 
 nav a,
 nav a:active,
@@ -27,11 +31,17 @@ nav a.isActive {
 }
 
 /*nav a:hover {*/
-  /*background-color: #cf70ff;*/
-  /*background-image: radial-gradient(circle, #cf70ff,#bb90e2);*/
-/*}*/
-/*nav a:active {*/
-  /*background-color: #f3cfff;*/
-  /*background-image: radial-gradient(circle, #f3cfff,#bb90e2);*/
+
+/*background-color: #cf70ff;*/
+
+/*background-image: radial-gradient(circle, #cf70ff,#bb90e2);*/
+
 /*}*/
 
+/*nav a:active {*/
+
+/*background-color: #f3cfff;*/
+
+/*background-image: radial-gradient(circle, #f3cfff,#bb90e2);*/
+
+/*}*/

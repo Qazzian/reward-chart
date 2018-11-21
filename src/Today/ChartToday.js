@@ -1,5 +1,5 @@
 import React from 'react';
-import './ChartToday.css';
+import './ChartToday.scss';
 
 import bem from '../util/bem';
 

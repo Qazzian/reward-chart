@@ -5,7 +5,7 @@ import TodayChartList from './TodayChartList';
 function mapStateToProps (state) {
 	console.info('mapStateToProps', state);
 	return {
-		charts: state.charts
+		charts: state.charts || []
 	}
 }
 
