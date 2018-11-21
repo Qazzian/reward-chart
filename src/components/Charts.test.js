@@ -1,6 +1,6 @@
 import Charts from './Charts';
 
-import { mount } from "enzyme";
+// import { mount } from "enzyme";
 import React from 'react';
 
 describe('Chart components', () => {
