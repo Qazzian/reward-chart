@@ -9,7 +9,7 @@ Array [
         "emote": "HAPPY",
       },
     ],
-    "id": 123,
+    "name": 123,
   },
 ]
 `;
@@ -23,7 +23,7 @@ Array [
         "emote": "SAD",
       },
     ],
-    "id": 123,
+    "name": 123,
   },
 ]
 `;

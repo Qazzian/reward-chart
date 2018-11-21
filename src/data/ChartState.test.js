@@ -32,20 +32,20 @@ describe('Chart State', () => {
 	});
 
 	it('should Remove a chart from the list', (done) => {
-		const firstState = ChartState([], ChartActions.addChart({id: 123}));
-		const secondState = ChartState(firstState, ChartActions.addChart({id: 987}));
+		const firstState = ChartState([], ChartActions.addChart({name: 123}));
+		const secondState = ChartState(firstState, ChartActions.addChart({name: 987}));
 		expect(secondState.length).toBe(2);
 
-		const thirdState = ChartState(secondState, ChartActions.removeChart(987));
+		const thirdState = ChartState(secondState, ChartActions.removeChart({name: 987}));
 		expect(thirdState.length).toBe(1);
 		done();
 	});
 
 	it('should Add a happy emote to a chart', (done) => {
-		const firstState = ChartState([], ChartActions.addChart({id: 123}));
-		const secondState = ChartState(firstState, ChartActions.chartHappy(123, 'date1'));
+		const firstState = ChartState([], ChartActions.addChart({name: 123}));
+		const secondState = ChartState(firstState, ChartActions.chartHappy({name: 123}, 'date1'));
 		expect(secondState).toMatchSnapshot();
-		const thirdState = ChartState(secondState, ChartActions.chartSad(123, 'date2'));
+		const thirdState = ChartState(secondState, ChartActions.chartSad({name: 123}, 'date2'));
 		expect(thirdState).toMatchSnapshot();
 		done();
 	});

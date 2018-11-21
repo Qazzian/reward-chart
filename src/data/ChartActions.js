@@ -42,27 +42,25 @@ export function addChart(chartData) {
 	};
 }
 
-export function removeChart(chartId) {
+export function removeChart(chart) {
 	return {
 		type: CHART_REMOVE,
-		id: chartId,
+		data: chart,
 	};
 }
 
-export function chartHappy(chartId, date = Date.now()) {
-	console.info('Happy click', chartId);
+export function chartHappy(chart, date = Date.now()) {
 	return {
 		type: CHART_HAPPY,
-		id: chartId,
+		data: chart,
 		date: date,
 	};
 }
 
-export function chartSad(chartId, date = Date.now()) {
-	console.info('Sad click', chartId);
+export function chartSad(chart, date = Date.now()) {
 	return {
 		type: CHART_SAD,
-		id: chartId,
+		data: chart,
 		date: date,
 	};
 }

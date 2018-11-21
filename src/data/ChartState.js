@@ -3,43 +3,43 @@ import * as chartActions from "./ChartActions";
 const initialState = [];
 
 export default function ChartState(state = initialState, action = {}) {
-	switch (action.type) {
-		case chartActions.CHART_ADD:
-			return addChart(state, action.data);
+  // console.info('Chart Action: ', action, state);
+  switch (action.type) {
+    case chartActions.CHART_ADD:
+    return addChart(state, action.data);
 		case chartActions.CHART_REMOVE:
-			return removeChart(state, action.id);
+			return removeChart(state, action.data);
 		case chartActions.CHART_HAPPY:
-			return addHappy(state, action.id, action.date);
+			return addHappy(state, action.data, action.date);
 		case chartActions.CHART_SAD:
-			return addSad(state, action.id, action.date);
+			return addSad(state, action.data, action.date);
 		default:
 			return state;
 	}
 }
 
 function addChart(chartList, newChart) {
-	console.info('Adding chart to state: ', newChart);
 	return chartList.slice().concat(Object.assign({}, newChart));
 }
 
-function removeChart(chartList, chartId) {
-	return chartList.filter((chart) => {
-		return chart.id !== chartId;
+function removeChart(chartList, chart) {
+  return chartList.filter((oldChart) => {
+		return oldChart.name !== chart.name;
 	})
 }
 
-function addHappy(chartList, chartId, date) {
-	return addEmote(chartList, chartId, date, 'HAPPY');
+function addHappy(chartList, chart, date) {
+	return addEmote(chartList, chart, date, 'HAPPY');
 }
 
 
-function addSad(chartList, chartId, date) {
-	return addEmote(chartList, chartId, date, 'SAD');
+function addSad(chartList, chart, date) {
+	return addEmote(chartList, chart, date, 'SAD');
 }
 
-function addEmote(chartList, chartId, date, emote) {
-	return chartList.map((chart) => {
-		if (chart.id === chartId) {
+function addEmote(chartList, chart, date=Date.now(), emote) {
+	return chartList.map((oldChart) => {
+		if (oldChart.name === chart.name) {
 			return addEmoteToChart(chart, date, emote);
 		}
 		return chart;
