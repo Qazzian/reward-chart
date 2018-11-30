@@ -19,10 +19,9 @@ function mapDispatchToProps (dispatch) {
 		}
 	}
 }
-
-const TodayContainer = connect(
+const TodayConnector = connect(
 	mapStateToProps,
 	mapDispatchToProps
 )(TodayChartList);
 
-export default TodayContainer
+export default TodayConnector
