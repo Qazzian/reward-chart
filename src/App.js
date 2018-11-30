@@ -1,5 +1,6 @@
 import React, {Component} from 'react';
 import { Provider } from 'react-redux'
+import './util/icons';
 import './App.scss';
 
 import PageTemplate from './components/PageTemplate';

@@ -1,5 +1,7 @@
 import { configure } from '@storybook/react';
 
+import '../src/util/icons';
+
 const req = require.context('../src', true, /\.stories\.js$/);
 
 function loadStories() {
