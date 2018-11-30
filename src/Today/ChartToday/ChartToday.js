@@ -1,7 +1,10 @@
 import React from 'react';
 import './ChartToday.scss';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 
 import bem from '../../util/bem';
+
+const blockName = 'chartToday';
 
 const ChartToday = ({ chart, onHappyClick, onSadClick }) => {
 	if (!chart) {
@@ -11,11 +14,15 @@ const ChartToday = ({ chart, onHappyClick, onSadClick }) => {
 	return (
 		<article className={'chartToday'} key={chart.name}>
 			<h2>{chart.name}</h2>
-			<div className={'chartToday__body'}>
-				<div className={'chartToday__state'}></div>
-				<div className="chatToday__emoteControls">
-					<button className={bem('chartToday', 'button', ['happy'])} onClick={() => onHappyClick(chart)}>&#x263a;</button>
-					<button className={bem('chartToday', 'button', ['sad'])} onClick={() => onSadClick(chart)}>&#x2639;</button>
+			<div className={bem(blockName, 'body')}>
+				<div className={bem(blockName, 'state')}></div>
+				<div className={bem(blockName, "emoteControls")}>
+					<button className={bem('chartToday', 'button', ['happy'])} onClick={() => onHappyClick(chart)}>
+						<FontAwesomeIcon icon="smile" />
+					</button>
+					<button className={bem('chartToday', 'button', ['sad'])} onClick={() => onSadClick(chart)}>
+						<FontAwesomeIcon icon="frown" />
+					</button>
 				</div>
 			</div>
 		</article>

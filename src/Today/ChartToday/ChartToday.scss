@@ -2,9 +2,31 @@
   border-bottom: 1px solid #d6d2d2;
   padding-bottom: 1em;
 
+  &__body {
+    display: flex;
+  }
+
+  &__state {
+    flex-grow: 1;
+  }
+
+  &__emoteControls {
+    display: flex;
+    flex-direction: column;
+  }
+
   &__button {
     font-size: 60px;
     background: transparent;
     border: none;
+    filter: drop-shadow(2px 3px 1px #777);
+    
+    &--happy {
+      color: #1f9a0b
+    }
+
+    &--sad {
+      color: #ff7a00
+    }
   }
 }

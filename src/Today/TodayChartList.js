@@ -1,5 +1,5 @@
 import React from 'react';
-import ChartToday from './ChartToday';
+import ChartToday from './ChartToday/ChartToday';
 import NewChartContainer from '../components/newChart/NewChartContainer';
 
 const TodayChartList = (props) => {
