@@ -1,14 +1,27 @@
 .chartToday {
-  border-bottom: 1px solid #d6d2d2;
-  padding-bottom: 1em;
+	border-radius: 10px;
+	border: 1px solid black;
+	padding-bottom: 1em;
+	margin-bottom: 1ex;
+	
+	&__title {
+		margin: 0 0 1ex 0;
+		text-align: center;
+	}
 
   &__body {
     display: flex;
   }
 
-  &__state {
-    flex-grow: 1;
-  }
+  &__pastEmotes {
+		flex-grow: 1;
+		display: flex;
+		justify-content: space-evenly;
+	}
+	
+	&__emoteDay {
+		text-align: center;
+	}
 
   &__emoteControls {
     display: flex;
@@ -17,9 +30,6 @@
 
   &__button {
     font-size: 60px;
-    background: transparent;
-    border: none;
-    filter: drop-shadow(2px 3px 1px #777);
     
     &--happy {
       color: #1f9a0b

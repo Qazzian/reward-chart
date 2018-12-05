@@ -1,15 +1,11 @@
 import React from "react";
-import { shallow } from "enzyme";
+import { shallow, mount } from "enzyme";
 
 import ChartToday from './ChartToday';
+import * as helpers from './ChartToday.helper';
 
 describe('<ChartToday/>', () => {
   const fakeChart = {name: 'TestChart'};
-
-  const todayString = () => {
-    // I want YYYYMMDD
-    Date.now();
-  }
 
   test('should render', () => {
     const chartElement = shallow(<ChartToday chart={fakeChart}/>);
@@ -18,15 +14,16 @@ describe('<ChartToday/>', () => {
     expect(headerElement.text()).toBe('TestChart');
   });
   
-  test('should have emote buttons', () => {
+  it('should have emote buttons', () => {
     const mockHappy = jest.fn();
     const mockSad = jest.fn();
 
-    const chartElement = shallow(<ChartToday 
+    const chartElement = mount(<ChartToday 
       chart={fakeChart} 
       onHappyClick={mockHappy} 
       onSadClick={mockSad}
-    />);
+		/>);
+		console.info('chartElement', chartElement);
     const buttons = chartElement.find('button');
     console.info('BUTTONS:', buttons.length);
     expect(buttons.length).toBe(2);
@@ -40,13 +37,14 @@ describe('<ChartToday/>', () => {
   test('should show result for current day', () => {
     const filledChart = {
       name: 'filledChart',
-      emotes: {
-        '2018-11-27': ['happy']
-      }
+      emotes: [{
+				date: helpers.todayStr,
+				emote: 'happy',
+			 }]
     }
-    const chartElement = shallow(<ChartToday chart={filledChart} />);
-    expect(true).toBe(true);
+		const chartElement = shallow(<ChartToday chart={filledChart} />);
+		// Need to decide what the happy state looks like
+    expect(chartElement).toBeDefined();
   });
-  
-  
-})
+	
+});

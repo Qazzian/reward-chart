@@ -1,5 +1,6 @@
 import React from 'react';
 import './ChartToday.scss';
+import ButtonIcon from '../../atoms/buttons/ButtonIcon';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 
 import bem from '../../util/bem';
@@ -13,16 +14,22 @@ const ChartToday = ({ chart, onHappyClick, onSadClick }) => {
 
 	return (
 		<article className={'chartToday'} key={chart.name}>
-			<h2>{chart.name}</h2>
+			<h2 className='chartToday__title'>{chart.name}</h2>
 			<div className={bem(blockName, 'body')}>
-				<div className={bem(blockName, 'state')}></div>
+				<div className={bem(blockName, 'pastEmotes')}>
+					{renderEmoteList(chart.emotes)}
+				</div>
 				<div className={bem(blockName, "emoteControls")}>
-					<button className={bem('chartToday', 'button', ['happy'])} onClick={() => onHappyClick(chart)}>
-						<FontAwesomeIcon icon="smile" />
-					</button>
-					<button className={bem('chartToday', 'button', ['sad'])} onClick={() => onSadClick(chart)}>
-						<FontAwesomeIcon icon="frown" />
-					</button>
+					<ButtonIcon
+						className={bem('chartToday', 'button', ['happy'])} 
+						onClick={() => onHappyClick(chart)}
+						icon="smile" 
+					/>
+					<ButtonIcon
+						className={bem('chartToday', 'button', ['sad'])} 
+						onClick={() => onSadClick(chart)}
+						icon="frown" 
+					/>
 				</div>
 			</div>
 		</article>
@@ -30,3 +37,14 @@ const ChartToday = ({ chart, onHappyClick, onSadClick }) => {
 };
 
 export default ChartToday;
+
+function renderEmoteList(emotes) {
+	return emotes && emotes.map((emoteObj) => {
+			return (
+				<span key={emoteObj.date} className={bem(blockName, 'emoteDay')}>
+				  {emoteObj.date} <br />
+					{emoteObj.emote}
+				</span>
+			)
+		});
+}
