@@ -19,13 +19,13 @@ describe('Chart State', () => {
 	});
 
 	it('should add a Chart to the list', (done) => {
-		const firstState = ChartState([], ChartActions.addChart({id: 123}));
+		const firstState = ChartState([], ChartActions.addChart({name: 123}));
 		expect(firstState.length).toBe(1);
-		expect(firstState[0].id).toBe(123);
+		expect(firstState[0].name).toBe(123);
 
-		const secondState = ChartState(firstState, ChartActions.addChart({id: 987}));
+		const secondState = ChartState(firstState, ChartActions.addChart({name: 987}));
 		expect(secondState.length).toBe(2);
-		expect(secondState[1].id).toBe(987);
+		expect(secondState[1].name).toBe(987);
 
 		expect(firstState.length).toBe(1);
 		done();
