@@ -1,4 +1,4 @@
-import ChartState from './ChartState';
+import ChartState, { chartExists } from './ChartState';
 import * as ChartActions from './ChartActions';
 
 describe('Chart State', () => {
@@ -31,6 +31,15 @@ describe('Chart State', () => {
 		done();
 	});
 
+	it('should ignore duplicate names', () => {
+		const firstState = ChartState([], ChartActions.addChart({name: '123'}));
+		expect(firstState.length).toBe(1);
+		expect(firstState[0].name).toBe('123');
+
+		const secondState = ChartState(firstState, ChartActions.addChart({name: '123'}));
+		expect(secondState.length).toBe(1);
+	});
+
 	it('should Remove a chart from the list', (done) => {
 		const firstState = ChartState([], ChartActions.addChart({name: 123}));
 		const secondState = ChartState(firstState, ChartActions.addChart({name: 987}));
@@ -48,5 +57,12 @@ describe('Chart State', () => {
 		const thirdState = ChartState(secondState, ChartActions.chartSad({name: 123}, 'date2'));
 		expect(thirdState).toMatchSnapshot();
 		done();
+	});
+
+	describe('Helper Functions', () => {
+		test('chartExists', () => {
+				const firstState = ChartState([], ChartActions.addChart({name: 123}));
+				expect(chartExists(firstState, 123)).toBe(true);
+		});
 	});
 });

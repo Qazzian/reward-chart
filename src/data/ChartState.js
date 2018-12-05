@@ -18,7 +18,16 @@ export default function ChartState(state = initialState, action = {}) {
 	}
 }
 
+export function chartExists(chartList, chartName) {
+	return 0 < chartList.filter((chart) => {
+		return chart.name === chartName;
+	}).length;
+}
+
 function addChart(chartList, newChart) {
+	if (chartExists(chartList, newChart.name)) {
+		return chartList;
+	}
 	return chartList.slice().concat(Object.assign({}, newChart));
 }
 
