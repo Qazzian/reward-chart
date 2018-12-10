@@ -51,7 +51,7 @@ function addEmote(chartList, chart, date=Date.now(), emote) {
 		if (oldChart.name === chart.name) {
 			return addEmoteToChart(chart, date, emote);
 		}
-		return chart;
+		return oldChart;
 	});
 }
 
