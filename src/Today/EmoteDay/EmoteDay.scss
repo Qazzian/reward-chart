@@ -1,0 +1,16 @@
+.EmoteDay {
+	display: flex;
+	flex-direction: column;
+	align-items: stretch;
+	text-align: center;
+	
+	header {
+		background-color: #d6d6d6;
+		border-bottom: 1px solid #c4c4c4;
+		padding: 5px 10px;
+	}
+
+	&__body {
+		padding: 5px 10px;
+	}
+}
