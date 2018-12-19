@@ -23,12 +23,12 @@ const ChartToday = ({ chart, onHappyClick, onSadClick }) => {
 					<ButtonIcon
 						className={bem('chartToday', 'button', ['happy'])} 
 						onClick={() => onHappyClick(chart)}
-						icon="smile" 
+						emote="HAPPY" 
 					/>
 					<ButtonIcon
 						className={bem('chartToday', 'button', ['sad'])} 
 						onClick={() => onSadClick(chart)}
-						icon="frown" 
+						emote="SAD" 
 					/>
 				</div>
 			</div>

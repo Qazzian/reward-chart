@@ -1,16 +1,17 @@
 import React from 'react';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import classnames from 'classnames';
+import Emote from '../emote/Emote';
 
 import './buttons.scss';
 
-export default function({className, icon, altText, ...btnProps}){
+export default function({className, emote, altText, ...btnProps}){
 	return (
 		<button 
 			className={classnames('buttonIcon', className)} 
 			{...btnProps}
 		>
-			<FontAwesomeIcon icon={icon} />
+			<Emote emote={emote} />
 			<span className="sr-only">{altText}</span>
 		</button>
 	);
