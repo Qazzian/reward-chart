@@ -1,7 +1,7 @@
 import React from 'react';
 import './ChartToday.scss';
+import EmoteDay from '../EmoteDay/EmoteDay';
 import ButtonIcon from '../../atoms/buttons/ButtonIcon';
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 
 import bem from '../../util/bem';
 
@@ -41,10 +41,16 @@ export default ChartToday;
 function renderEmoteList(emotes) {
 	return emotes && emotes.map((emoteObj) => {
 			return (
-				<span key={emoteObj.date} className={bem(blockName, 'emoteDay')}>
-				  {emoteObj.date} <br />
-					{emoteObj.emote}
-				</span>
+				<EmoteDay 
+					key={emoteObj.date}
+					date={emoteObj.date} 
+					emote={emoteObj.emote} 
+					className={bem(blockName, 'emoteDay')}
+				/>
+				// <span key={emoteObj.date} >
+				//   {emoteObj.date} <br />
+				// 	{emoteObj.emote}
+				// </span>
 			)
 		});
 }
