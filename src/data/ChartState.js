@@ -1,12 +1,12 @@
 import * as chartActions from "./ChartActions";
+import * as dateUtil from "../util/date";
 
 const initialState = [];
 
 export default function ChartState(state = initialState, action = {}) {
-  // console.info('Chart Action: ', action, state);
-  switch (action.type) {
-    case chartActions.CHART_ADD:
-    return addChart(state, action.data);
+	switch (action.type) {
+		case chartActions.CHART_ADD:
+			return addChart(state, action.data);
 		case chartActions.CHART_REMOVE:
 			return removeChart(state, action.data);
 		case chartActions.CHART_HAPPY:
@@ -19,9 +19,12 @@ export default function ChartState(state = initialState, action = {}) {
 }
 
 export function chartExists(chartList, chartName) {
-	return 0 < chartList.filter((chart) => {
-		return chart.name === chartName;
-	}).length;
+	return (
+		0 <
+		chartList.filter(chart => {
+			return chart.name === chartName;
+		}).length
+	);
 }
 
 function addChart(chartList, newChart) {
@@ -32,22 +35,21 @@ function addChart(chartList, newChart) {
 }
 
 function removeChart(chartList, chart) {
-  return chartList.filter((oldChart) => {
+	return chartList.filter(oldChart => {
 		return oldChart.name !== chart.name;
-	})
+	});
 }
 
 function addHappy(chartList, chart, date) {
-	return addEmote(chartList, chart, date, 'HAPPY');
+	return addEmote(chartList, chart, date, "HAPPY");
 }
-
 
 function addSad(chartList, chart, date) {
-	return addEmote(chartList, chart, date, 'SAD');
+	return addEmote(chartList, chart, date, "SAD");
 }
 
-function addEmote(chartList, chart, date=Date.now(), emote) {
-	return chartList.map((oldChart) => {
+function addEmote(chartList, chart, date = new Date(), emote) {
+	return chartList.map(oldChart => {
 		if (oldChart.name === chart.name) {
 			return addEmoteToChart(chart, date, emote);
 		}
@@ -56,8 +58,11 @@ function addEmote(chartList, chart, date=Date.now(), emote) {
 }
 
 function addEmoteToChart(chart, date, emote) {
-	console.info('addEmoteToChart args: ', chart, date, emote);
-	const newEmote = {date, emote};
+	console.info("addEmoteToChart args: ", chart, date, emote);
+	const newEmote = {
+		date: dateUtil.toDateString(date),
+		emote
+	};
 	return Object.assign({}, chart, {
 		emotes: [newEmote]
 	});

@@ -1,3 +1,5 @@
+import clock from 'jest-plugin-clock';
+
 import ChartState, { chartExists } from './ChartState';
 import * as ChartActions from './ChartActions';
 
@@ -51,10 +53,11 @@ describe('Chart State', () => {
 	});
 
 	it('should Add a happy emote to a chart', (done) => {
+		clock.set('2019-12-14');
 		const firstState = ChartState([], ChartActions.addChart({name: 123}));
-		const secondState = ChartState(firstState, ChartActions.chartHappy({name: 123}, 'date1'));
+		const secondState = ChartState(firstState, ChartActions.chartHappy({name: 123}));
 		expect(secondState).toMatchSnapshot();
-		const thirdState = ChartState(secondState, ChartActions.chartSad({name: 123}, 'date2'));
+		const thirdState = ChartState(secondState, ChartActions.chartSad({name: 123}));
 		expect(thirdState).toMatchSnapshot();
 		done();
 	});

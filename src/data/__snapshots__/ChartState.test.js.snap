@@ -5,7 +5,7 @@ Array [
   Object {
     "emotes": Array [
       Object {
-        "date": "date1",
+        "date": "2018-12-6",
         "emote": "HAPPY",
       },
     ],
@@ -19,7 +19,7 @@ Array [
   Object {
     "emotes": Array [
       Object {
-        "date": "date2",
+        "date": "2018-12-6",
         "emote": "SAD",
       },
     ],

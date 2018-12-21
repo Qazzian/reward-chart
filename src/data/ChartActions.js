@@ -49,7 +49,7 @@ export function removeChart(chart) {
 	};
 }
 
-export function chartHappy(chart, date = Date.now()) {
+export function chartHappy(chart, date) {
 	return {
 		type: CHART_HAPPY,
 		data: chart,
@@ -57,7 +57,7 @@ export function chartHappy(chart, date = Date.now()) {
 	};
 }
 
-export function chartSad(chart, date = Date.now()) {
+export function chartSad(chart, date) {
 	return {
 		type: CHART_SAD,
 		data: chart,
