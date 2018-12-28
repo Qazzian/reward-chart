@@ -15,13 +15,14 @@ const emoteToIcon = {
 };
 
 export default ({emote, altText}) => {
-	if (!(emote in emoteToIcon)) {
+	const emoteName = emote.toUpperCase();
+	if (!(emoteName in emoteToIcon)) {
 		return (<span class="error">unkown emote: ${emote}</span>);
 	}
 
 	return (
-	<div className={bem('emote', '', [emote])}>
-		<FontAwesomeIcon icon={emoteToIcon[emote].icon} />
+	<div className={bem('emote', '', [emoteName])}>
+		<FontAwesomeIcon icon={emoteToIcon[emoteName].icon} />
 		{altText ? (<span className="sr-only">{altText}</span>) : ''}
 	</div>
 )};
