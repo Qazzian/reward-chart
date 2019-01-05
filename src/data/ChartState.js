@@ -58,7 +58,6 @@ function addEmote(chartList, chart, date = new Date(), emote) {
 }
 
 function addEmoteToChart(chart, date, emote) {
-	console.info("addEmoteToChart args: ", chart, date, emote);
 	const newEmote = {
 		date: dateUtil.toDateString(date),
 		emote
