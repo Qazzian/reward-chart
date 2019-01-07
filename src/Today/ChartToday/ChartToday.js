@@ -38,6 +38,25 @@ const ChartToday = ({ chart, onHappyClick, onSadClick }) => {
 
 export default ChartToday;
 
+export function subtractDays(date, days) {
+	const newDate = new Date(date);
+	newDate.setDate(newDate.getDate() - days);
+	return newDate;
+}
+
+export function fillMissingDays(emotes, days) {
+	const today = new Date();
+	const filledDays = [];
+	for (let index = 0; index < days; index++) {
+		filledDays.push({
+			date: subtractDays(today, index),
+			emote: '',
+		});
+	}
+
+	return filledDays;
+}
+
 function renderEmoteList(emotes) {
 	return emotes && emotes.map((emoteObj) => {
 			return (
