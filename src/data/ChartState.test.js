@@ -5,6 +5,7 @@ import * as ChartActions from './ChartActions';
 
 describe('Chart State', () => {
 	beforeEach(() => {
+		clock.set('2018-12-06');
 	});
 
 	afterEach(() => {
@@ -52,14 +53,22 @@ describe('Chart State', () => {
 		done();
 	});
 
-	it('should Add a happy emote to a chart', (done) => {
-		clock.set('2019-12-14');
+	it('should Add an emote to a chart', (done) => {
+		clock.set('2018-12-14');
 		const firstState = ChartState([], ChartActions.addChart({name: 123}));
 		const secondState = ChartState(firstState, ChartActions.chartHappy({name: 123}));
 		expect(secondState).toMatchSnapshot();
 		const thirdState = ChartState(secondState, ChartActions.chartSad({name: 123}));
 		expect(thirdState).toMatchSnapshot();
 		done();
+	});
+
+	it('should add multiple emotes to a chart', () => {
+		const firstState = ChartState([], ChartActions.addChart({name: 123}));
+		const secondState = ChartState(firstState, ChartActions.chartHappy({name: 123}, new Date('2018-12-14')));
+		const thirdState = ChartState(secondState, ChartActions.chartSad({name: 123}, new Date('2018-12-15')));
+		const forthState = ChartState(thirdState, ChartActions.chartHappy({name: 123}, new Date('2018-12-16')));
+		expect(forthState).toMatchSnapshot();
 	});
 
 	describe('Helper Functions', () => {

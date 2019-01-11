@@ -51,7 +51,7 @@ function addSad(chartList, chart, date) {
 function addEmote(chartList, chart, date = new Date(), emote) {
 	return chartList.map(oldChart => {
 		if (oldChart.name === chart.name) {
-			return addEmoteToChart(chart, date, emote);
+			return addEmoteToChart(oldChart, date, emote);
 		}
 		return oldChart;
 	});
@@ -62,7 +62,25 @@ function addEmoteToChart(chart, date, emote) {
 		date: dateUtil.toDateString(date),
 		emote
 	};
+
+	let processed = false;
+	const oldEmotes = chart.emotes || [];
+
+	const newEmotes = oldEmotes.reduce((newEmoteList, currentEmote) => {
+		if (currentEmote.date === newEmote.date) {
+			newEmoteList.push(newEmote);
+			processed = true;
+		}
+		else {
+			newEmoteList.push(currentEmote);
+		}
+		return newEmoteList;
+	}, []);
+	
+	if (!processed) {
+		newEmotes.push(newEmote);
+	}
 	return Object.assign({}, chart, {
-		emotes: [newEmote]
+		emotes: newEmotes,
 	});
 }

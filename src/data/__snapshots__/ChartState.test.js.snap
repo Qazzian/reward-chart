@@ -1,6 +1,6 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`Chart State should Add a happy emote to a chart 1`] = `
+exports[`Chart State should Add an emote to a chart 1`] = `
 Array [
   Object {
     "emotes": Array [
@@ -14,13 +14,63 @@ Array [
 ]
 `;
 
-exports[`Chart State should Add a happy emote to a chart 2`] = `
+exports[`Chart State should Add an emote to a chart 2`] = `
 Array [
   Object {
     "emotes": Array [
       Object {
         "date": "2018-12-6",
         "emote": "SAD",
+      },
+    ],
+    "name": 123,
+  },
+]
+`;
+
+exports[`Chart State should Add emotes to a chart 1`] = `
+Array [
+  Object {
+    "emotes": Array [
+      Object {
+        "date": "2018-12-6",
+        "emote": "HAPPY",
+      },
+    ],
+    "name": 123,
+  },
+]
+`;
+
+exports[`Chart State should Add emotes to a chart 2`] = `
+Array [
+  Object {
+    "emotes": Array [
+      Object {
+        "date": "2018-12-6",
+        "emote": "SAD",
+      },
+    ],
+    "name": 123,
+  },
+]
+`;
+
+exports[`Chart State should add multiple emotes to a chart 1`] = `
+Array [
+  Object {
+    "emotes": Array [
+      Object {
+        "date": "2018-12-14",
+        "emote": "HAPPY",
+      },
+      Object {
+        "date": "2018-12-15",
+        "emote": "SAD",
+      },
+      Object {
+        "date": "2018-12-16",
+        "emote": "HAPPY",
       },
     ],
     "name": 123,
