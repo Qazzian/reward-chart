@@ -67,7 +67,7 @@ function addEmoteToChart(chart, date, emote) {
 	const oldEmotes = chart.emotes || [];
 
 	const newEmotes = oldEmotes.reduce((newEmoteList, currentEmote) => {
-		if (currentEmote.date === newEmote.date) {
+		if (isSameDay(currentEmote.date, newEmote.date)) {
 			newEmoteList.push(newEmote);
 			processed = true;
 		}
@@ -83,4 +83,10 @@ function addEmoteToChart(chart, date, emote) {
 	return Object.assign({}, chart, {
 		emotes: newEmotes,
 	});
+}
+
+function isSameDay(date1, date2) {
+	return ['getDate', 'getMonth', 'getFullYear'].reduce((isEqual, currentTest) => {
+		return isEqual && date1[currentTest]() === date2[currentTest]();
+	}, true);
 }
