@@ -1,0 +1,20 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`AppState intigration tets deal with updates correctly 1`] = `
+Object {
+  "charts": Array [
+    Object {
+      "emotes": Array [
+        Object {
+          "date": 2018-12-10T00:00:00.000Z,
+          "emote": "HAPPY",
+        },
+      ],
+      "name": "Chart 1",
+    },
+    Object {
+      "name": "Chart 2",
+    },
+  ],
+}
+`;

@@ -1,5 +1,4 @@
 import * as chartActions from "./ChartActions";
-import * as dateUtil from "../util/date";
 
 const initialState = [];
 
@@ -59,7 +58,7 @@ function addEmote(chartList, chart, date = new Date(), emote) {
 
 function addEmoteToChart(chart, date, emote) {
 	const newEmote = {
-		date: dateUtil.toDateString(date),
+		date,
 		emote
 	};
 

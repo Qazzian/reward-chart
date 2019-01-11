@@ -13,11 +13,10 @@ describe('AppState intigration tets', () => {
 	
 	it('deal with updates correctly', () => {
 		const initState = {"charts":[{"name":"Chart 1"},{"name":"Chart 2"}]};
-		const expectedState= {"charts":[{"name":"Chart 1", "emotes":[{"date":"2018-12-10","emote":"HAPPY"}]},{"name":"Chart 2"}]};
 		const store = createStoreFromState(initState);
 		store.dispatch(chartActions.chartHappy({name: "Chart 1"}, new Date('2018-12-10')));
 
-		expect(store.getState()).toMatchObject(expectedState);
+		expect(store.getState()).toMatchSnapshot();
 
 
 		

@@ -11,7 +11,7 @@ export function dateStr(date) {
 export function dateFromNow(days) {
 	let date = new Date();
 	date.setDate(date.getDate() - (days));
-	return dateStr(date);
+	return date;
 }
 
 export const todayStr = new Date().toLocaleDateString(dateFormatOptions);
