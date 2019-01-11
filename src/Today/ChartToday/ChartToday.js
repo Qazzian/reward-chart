@@ -66,10 +66,6 @@ function renderEmoteList(emotes) {
 					emote={emoteObj.emote} 
 					className={bem(blockName, 'emoteDay')}
 				/>
-				// <span key={emoteObj.date} >
-				//   {emoteObj.date} <br />
-				// 	{emoteObj.emote}
-				// </span>
 			)
 		});
 }

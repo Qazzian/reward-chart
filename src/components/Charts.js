@@ -1,15 +1,11 @@
 import React from 'react';
-import {
-	Route,
-	Link,
-} from 'react-router-dom';
+import { Route } from 'react-router-dom';
 
 
 const Charts = ({match}) => {
 	return (
 		<div className="Charts">
 			<h1 className="display-3">Charts</h1>
-
 			<Route path={`${match.path}/:id`} component={Chart}/>
 		</div>
 	);
