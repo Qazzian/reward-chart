@@ -1,3 +1,5 @@
+@import '../../theme/theme-variables';
+
 .EmoteDay {
 	display: flex;
 	flex-direction: column;
@@ -5,8 +7,7 @@
 	text-align: center;
 	
 	header {
-		background-color: #d6d6d6;
-		border-bottom: 1px solid #c4c4c4;
+		color: #fff4db;
 		padding: 5px 10px;
 	}
 

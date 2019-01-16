@@ -1,9 +1,21 @@
+@import '../../theme/theme-variables';
+
 .emote {
 	&--HAPPY {
-		color: #1f9a0b
+		color: $color-happy;
+
+		button:focus > &,
+		button:hover > & {
+			color: $color-happy-highlight;
+		}
 	}
 
 	&--SAD {
-		color: #ff7a00
+		color: $color-sad;
+
+		button:focus > &,
+		button:hover > & {
+			color: $color-sad-highlight;
+		}
 	}
 }

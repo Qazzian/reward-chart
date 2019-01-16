@@ -1,9 +1,30 @@
+@import '../../theme/theme-variables';
+
 button {
 	cursor: pointer;
 }
 
 .buttonIcon {
-	background: transparent;
-	border: none;
-	filter: drop-shadow(2px 3px 1px #777);
+	background: $font-color;
+	border: 7px solid #f3b404;
+	border-radius: 51%;
+	box-shadow: 4px 4px 7px #000000ab;
+	line-height: 0;
+	margin: 0.5rem 0.5rem 0;
+	padding: 0;
+
+	&:focus, 
+	&:hover {
+		border-color: #f9cf59;
+		outline: none;
+	}
+
+	&:active {
+		box-shadow: none;
+		border-color: #f9cf59;
+	}
+
+	.emote {
+		margin: -1px
+	}
 }

@@ -1,15 +1,15 @@
+@import '../../theme/theme-variables';
+
 nav {
   display: flex;
   justify-content: space-around;
   margin: 0;
   padding: 0;
-  background-image: radial-gradient(
-    circle 
-    at top right, 
-    #9928ef 0%, 
-    #f3a22e 120%
-    );
 }
+
+// radial-gradient(circle at top right, #4c1477 0%, #cc8f37 120%);
+// }
+
 
 nav a,
 nav a:active,
@@ -20,15 +20,22 @@ nav a:visited {
   background: transparent;
   /*background-color: #dcb5ff;*/
   /*background-image: radial-gradient(circle, #dcb5ff,#bb90e2);*/
-  color: white;
+  color: $light-yellow;
   display: block;
   padding: 0.5em;
   text-decoration: none;
   text-align: center;
 }
 
+nav a:focus,
+nav a:hover {
+	color: $dark-yellow;
+}
+
 nav a.isActive {
-  border-bottom: 2px solid white;
+	// border-bottom: 2px solid white;
+	font-weight: 900;
+	color: $dark-yellow;
 }
 
 /*nav a:hover {*/
