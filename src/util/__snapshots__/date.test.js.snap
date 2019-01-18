@@ -1,0 +1,21 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Date Utils loopOverDays should iterate over the days 1`] = `
+Array [
+  Array [
+    2018-12-10T00:00:00.000Z,
+  ],
+  Array [
+    2018-12-11T00:00:00.000Z,
+  ],
+  Array [
+    2018-12-12T00:00:00.000Z,
+  ],
+  Array [
+    2018-12-13T00:00:00.000Z,
+  ],
+  Array [
+    2018-12-14T00:00:00.000Z,
+  ],
+]
+`;
