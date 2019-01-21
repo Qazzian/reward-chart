@@ -23,7 +23,9 @@
     "coverage": "react-scripts test --coverage --collectCoverageFrom='[\"src/**/*.{js,jsx}\",\"!src/**/stories/*\", \"!src/**/*.stories.js\"]'",
     "eject": "react-scripts eject",
     "storybook": "start-storybook -p 9009 -s public",
-    "build-storybook": "build-storybook -s public"
+		"build-storybook": "build-storybook -s public",
+		"loki-update": "loki update",
+		"loki": "loki test"
   },
   "eslintConfig": {
     "extends": "react-app"
@@ -45,7 +47,24 @@
     "enzyme-adapter-react-16": "^1.7.0",
     "jest-enzyme": "^7.0.1",
     "jest-plugin-clock": "^2.9.0",
+    "loki": "^0.14.2",
     "node-sass": "^4.10.0",
     "react-test-renderer": "^16.6.3"
+  },
+  "loki": {
+    "configurations": {
+      "chrome.laptop": {
+        "target": "chrome.docker",
+        "width": 1366,
+        "height": 768,
+        "deviceScaleFactor": 1,
+        "mobile": false,
+        "fitWindow": false
+      },
+      "chrome.iphone7": {
+        "target": "chrome.docker",
+        "preset": "iPhone 7"
+      }
+    }
   }
 }
