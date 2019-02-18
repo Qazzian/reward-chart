@@ -1,20 +1,9 @@
 import {loadData, saveData} from './LocalStorage';
 
-export const
-	CHART_LOAD_REQUEST = 'CHART_LOAD_REQUEST',
-	CHART_LOAD_RECEIVE = 'CHART_LOAD_RECEIVE',
-	CHART_SAVE_REQUEST = 'CHART_SAVE_REQUEST',
-	CHART_SAVE_COMPLETE = 'CHART_SAVE_COMPLETE',
-	CHART_ADD = 'CHART_ADD',
-	CHART_REMOVE = 'CHART_REMOVE',
-	CHART_HAPPY = 'CHART_HAPPY',
-	CHART_SAD = 'CHART_SAD';
 
-export function requestChartLoad() {
-	return {
-		type: CHART_LOAD_REQUEST,
-	}
-}
+export const requestChartLoad = () => ({
+	type: CHART_LOAD_REQUEST,
+});
 
 export function receiveChartLoad(chartState) {
 	return {
@@ -35,32 +24,32 @@ export function completeChartSave() {
 	}
 }
 
-export function addChart(chartData) {
+export function addChart(chartId) {
 	return {
 		type: CHART_ADD,
-		data: chartData,
+		id: chartId,
 	};
 }
 
-export function removeChart(chart) {
+export function removeChart(chartId) {
 	return {
 		type: CHART_REMOVE,
-		data: chart,
+		id: chartId,
 	};
 }
 
-export function chartHappy(chart, date) {
+export function chartHappy(chartId, date) {
 	return {
 		type: CHART_HAPPY,
-		data: chart,
+		id: chartId,
 		date: date,
 	};
 }
 
-export function chartSad(chart, date) {
+export function chartSad(chartId, date) {
 	return {
 		type: CHART_SAD,
-		data: chart,
+		id: chartId,
 		date: date,
 	};
 }

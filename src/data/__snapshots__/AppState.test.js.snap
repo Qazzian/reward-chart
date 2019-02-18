@@ -1,20 +1,31 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`AppState intigration tets deal with updates correctly 1`] = `
+exports[`AppState intigration tests Defines correct initial state 1`] = `
 Object {
-  "charts": Array [
-    Object {
-      "emotes": Array [
-        Object {
-          "date": 2018-12-10T00:00:00.000Z,
-          "emote": "HAPPY",
+  "charts": Object {
+    "allIds": Array [],
+    "chartsById": Object {},
+  },
+}
+`;
+
+exports[`AppState intigration tests deal with updates correctly 1`] = `
+Object {
+  "charts": Object {
+    "allIds": Array [
+      Object {
+        "id": 1,
+        "name": "Chart 1",
+      },
+    ],
+    "chartsById": Object {
+      "[object Object]": Object {
+        "id": Object {
+          "id": 1,
+          "name": "Chart 1",
         },
-      ],
-      "name": "Chart 1",
+      },
     },
-    Object {
-      "name": "Chart 2",
-    },
-  ],
+  },
 }
 `;

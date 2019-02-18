@@ -1,8 +1,22 @@
 import * as chartActions from "./ChartActions";
 
-const initialState = [];
+// export const transformState = (state=[]) => {
+// 	if (!(state instanceof Array)) {
+// 		return state;
+// 	}
+//
+// 	const transformedState = state.reduce((state, chartObj, index) => {
+// 		return charts(state, {
+// 			...chartObj,
+// 			type: chartActions.CHART_ADD,
+// 			id: index+1,
+// 		});
+// 	}, charts());
+//
+// 	return transformedState;
+// };
 
-export default function ChartState(state = initialState, action = {}) {
+export default function ChartState(state = [], action = {}) {
 	switch (action.type) {
 		case chartActions.CHART_ADD:
 			return addChart(state, action.data);
@@ -17,14 +31,6 @@ export default function ChartState(state = initialState, action = {}) {
 	}
 }
 
-export function chartExists(chartList, chartName) {
-	return (
-		0 <
-		chartList.filter(chart => {
-			return chart.name === chartName;
-		}).length
-	);
-}
 
 function addChart(chartList, newChart) {
 	if (chartExists(chartList, newChart.name)) {
@@ -32,6 +38,7 @@ function addChart(chartList, newChart) {
 	}
 	return chartList.slice().concat(Object.assign({}, newChart));
 }
+
 
 function removeChart(chartList, chart) {
 	return chartList.filter(oldChart => {
@@ -75,7 +82,7 @@ function addEmoteToChart(chart, date, emote) {
 		}
 		return newEmoteList;
 	}, []);
-	
+
 	if (!processed) {
 		newEmotes.push(newEmote);
 	}

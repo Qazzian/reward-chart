@@ -1,8 +1,11 @@
 import { combineReducers } from 'redux';
-import ChartState from './ChartState';
+import * as fromCharts from './charts';
 
 const AppState = combineReducers({
-	charts: ChartState,
+	charts: fromCharts.charts,
 });
 
 export default AppState
+
+export const getAllCharts = (state) => 
+	fromCharts.getAllCharts(state.charts)

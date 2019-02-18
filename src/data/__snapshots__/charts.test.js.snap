@@ -1,0 +1,8 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`charts state should return an empty chart list by default 1`] = `
+Object {
+  "allIds": Array [],
+  "chartsById": Object {},
+}
+`;
