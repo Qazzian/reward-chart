@@ -38,6 +38,6 @@ describe('Emotes state', function () {
         const addAction3 = fromEmotes.addEmote('chart2', '2018-12-14', 'SAD');
         const testState = emotes(emotes(emotes(initState, addAction1), addAction2), addAction3);
         const testAction = fromEmotes.removeEmote('chart1_2018-12-15');
-        expect(emotes(testState, testAction)).toMatchSnapshot();
-    });
+		expect(emotes(testState, testAction)).toMatchSnapshot();
+	});
 });
