@@ -1,0 +1,56 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Emotes state should add an emote 1`] = `
+Object {
+  "allIds": Array [
+    "chart1_2018-12-14",
+  ],
+  "emotesById": Object {
+    "chart1_2018-12-14": Object {
+      "chartId": "chart1",
+      "date": "2018-12-14",
+      "emoteId": "chart1_2018-12-14",
+      "emoteType": "HAPPY",
+    },
+  },
+}
+`;
+
+exports[`Emotes state should remove an emote 1`] = `
+Object {
+  "allIds": Array [
+    "chart1_2018-12-14",
+    "chart2_2018-12-14",
+  ],
+  "emotesById": Object {
+    "chart1_2018-12-14": Object {
+      "chartId": "chart1",
+      "date": "2018-12-14",
+      "emoteId": "chart1_2018-12-14",
+      "emoteType": "HAPPY",
+    },
+    "chart2_2018-12-14": Object {
+      "chartId": "chart2",
+      "date": "2018-12-14",
+      "emoteId": "chart2_2018-12-14",
+      "emoteType": "SAD",
+    },
+  },
+}
+`;
+
+exports[`Emotes state should update an emote 1`] = `
+Object {
+  "allIds": Array [
+    "chart1_2018-12-14",
+  ],
+  "emotesById": Object {
+    "chart1_2018-12-14": Object {
+      "chartId": "chart1",
+      "date": "2018-12-14",
+      "emoteId": "chart1_2018-12-14",
+      "emoteType": "SAD",
+    },
+  },
+}
+`;
