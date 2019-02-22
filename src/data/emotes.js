@@ -82,7 +82,7 @@ export function getEmoteById(state = {}, emoteId) {
 	return undefined;
 }
 
-export function getEmoteListById(state = {}, idList = []) {
+export function getEmotesByIdList(state = {}, idList = []) {
 	return idList.map((emoteId) => {
 		return state.emotesById[emoteId];
 	})

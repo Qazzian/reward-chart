@@ -1,0 +1,12 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Chart State should remove existing emotes 1`] = `
+Object {
+  "emotes": Array [
+    "test1_2018-12-14",
+    "test1_2018-12-16",
+  ],
+  "id": 1,
+  "name": "test1",
+}
+`;

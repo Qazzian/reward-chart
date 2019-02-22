@@ -16,6 +16,15 @@ Object {
 }
 `;
 
+exports[`Emotes state should get an emote by id 1`] = `
+Object {
+  "chartId": "chart1",
+  "date": "2018-12-14",
+  "emoteId": "chart1_2018-12-14",
+  "emoteType": "HAPPY",
+}
+`;
+
 exports[`Emotes state should remove an emote 1`] = `
 Object {
   "allIds": Array [

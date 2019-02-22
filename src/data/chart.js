@@ -1,7 +1,9 @@
+
 const actionTypes = {
 	CHART_ADD: 'CHART_ADD',
-	CHART_HAPPY: 'CHART_HAPPY',
-	CHART_SAD: 'CHART_SAD',
+	CHART_ADD_EMOTE: 'CHART_ADD_EMOTE',
+	CHART_REMOVE_EMOTE: 'CHART_REMOVE_EMOTE',
+	CHART_UPDATE_EMOTE: 'CHART_UPDATE_EMOTE',
 };
 
 export function chart(chart={}, action={}) {
@@ -12,27 +14,43 @@ export function chart(chart={}, action={}) {
 				...chart,
 				...newChart,
 			};
-		case actionTypes.CHART_HAPPY:
-			return chart;
-		case actionTypes.CHART_SAD:
-			return chart;
+		case actionTypes.CHART_ADD_EMOTE:
+			return {
+				...chart,
+				emotes: chart.emotes.concat(action.emoteId),
+			};
+		case actionTypes.CHART_REMOVE_EMOTE:
+			return {
+				...chart,
+				emotes: chart.emotes.filter((currentEmote) => {
+					return currentEmote !== action.emoteId;
+				})
+			};
 		default:
 			return chart;
 	}
 }
 
+export function hasEmote(state, emoteId) {
+	return state.emotes && !!(state.emotes.find((currentEmoteId) => {
+		return currentEmoteId === emoteId;
+	}));
+}
+
+
 export const chartAdd = (id, name) => ({
 	type: actionTypes.CHART_ADD,
 	id,
 	name,
+	emotes: [],
 });
 
-export const chartHappy = (date) => ({
-	type: actionTypes.CHART_HAPPY,
-	date,
+export const addEmote = (emoteId) => ({
+	type: actionTypes.CHART_ADD_EMOTE,
+	emoteId,
 });
 
-export const chartSad = (date) => ({
-	type: actionTypes.CHART_SAD,
-	date,
+export const removeEmote = (emoteId) => ({
+	type: actionTypes.CHART_REMOVE_EMOTE,
+	emoteId,
 });
