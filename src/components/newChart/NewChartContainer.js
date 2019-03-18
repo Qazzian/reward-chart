@@ -1,5 +1,5 @@
 import {connect} from 'react-redux';
-import {addChart} from '../../data/ChartActions';
+import {addChart} from '../../data/charts';
 import NewChart from './NewChart';
 
 function mapStateToProps () {
@@ -8,8 +8,8 @@ function mapStateToProps () {
 
 function mapDispatchToProps (dispatch) {
 	return {
-		addChart: data => {
-			dispatch(addChart(data))
+		addChart: ({id, name}) => {
+			dispatch(addChart({id, name}))
 		},
 	}
 }
