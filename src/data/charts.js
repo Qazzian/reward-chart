@@ -6,31 +6,41 @@ import {chart} from './chart';
 const chartActionTypes = {
 	CHART_ADD: 'CHART_ADD',
 	CHART_REMOVE: 'CHART_REMOVE',
-	CHART_HAPPY: 'CHART_HAPPY',
-	CHART_SAD: 'CHART_SAD',
+	CHART_ADD_EMOTE: 'CHART_ADD_EMOTE',
+	CHART_REMOVE_EMOTE: 'CHART_ADD_EMOTE',
 };
 
-// State reducers
-const chartsById = (state = {}, action = {}) => {
+function validateAction(action) {
 	if (!action.id) {
 		throw new Error(`Action doesn't have a valid id`);
 	}
+}
 
+// State reducers
+const chartsById = (state = {}, action = {}) => {
 	switch (action.type) {
 		case chartActionTypes.CHART_ADD:
+			validateAction(action);
 			if (chartExists(state, action.id)) {
 				throw new Error(`Chart ID '${action.id}' already exists`);
 			}
-		case chartActionTypes.CHART_HAPPY:
-		case chartActionTypes.CHART_SAD:
 			return {
 				...state,
 				[action.id]: chart(state[action.id], action),
 			};
 		case chartActionTypes.CHART_REMOVE:
+			validateAction(action);
+			return Object.keys(state).reduce((newState, chartId) => {
+				if (parseInt(chartId, 10) !== action.id) {
+					newState[chartId] = state[chartId];
+				}
+				return newState;
+			}, {});
+		case chartActionTypes.CHART_ADD_EMOTE:
+		case chartActionTypes.CHART_REMOVE_EMOTE:
 			return {
 				...state,
-				[action.id]: undefined,
+				[action.chartId]: chart(state[action.chartId], action),
 			};
 		default:
 			return state;
@@ -40,11 +50,13 @@ const chartsById = (state = {}, action = {}) => {
 const allIds = (state=[], action={}) => {
 	switch(action.type) {
 		case chartActionTypes.CHART_ADD:
+			validateAction(action);
 			return [
 				...state,
 				action.id,
 			];
-		case chartActionTypes.CHART_REMOVE: 
+		case chartActionTypes.CHART_REMOVE:
+			validateAction(action);
 			return state.filter((chartId) => {
 				return chartId !== action.id;
 			});
@@ -53,52 +65,41 @@ const allIds = (state=[], action={}) => {
 	}
 };
 
-const nextChartId = (state=1, action={}) => {
-	switch(action.type) {
-		case chartActionTypes.CHART_ADD:
-			// TODO
-	}
-}
+const DEFAULT_STATE = {
+	allIds: allIds(),
+	chartsById: chartsById(),
+	nextId: 1,
+};
 
-export const charts = (state, action={}) => {
 
-	let newState = Object.assign({}, state);
-	let newAction = Object.assign({}, action);
+export const charts = (state, action) => {
+	let newAction = {...action};
+	let newState = {
+		...DEFAULT_STATE,
+		...state,
+	};
 
-	if (!newState) {
-		newState = {
-			allIds: allIds(),
-			chartsById: chartsById(),
-			nextId: 1,
-		}
-	}
-	if (!newState.nextId) {
-		newState.nextId = 1;
-	}
-
-	if (!action.id) {
+	if (action && action.type === chartActionTypes.CHART_ADD && !action.id) {
 		newAction.id = newState.nextId;
+		newState.nextId += 1;
 	}
-	newState.nextId = newState.nextId <= newAction.id ? newAction.id + 1 : newState.nextId;
-	newState.chartsById = chartsById(newState.chartsById, newAction);
-	newState.allIds = allIds(newState.allIds, newAction);
 
-	return newState;
-
-}
+	return {
+		...newState,
+		chartsById: chartsById(newState.chartsById, action && newAction),
+		allIds: allIds(newState.allIds, action && newAction),
+	};
+};
 
 
 // State queries
 export const getAllCharts = (state) => {
-	console.info('GETTING ALL CHARTS: ', state);
 	if (!state || !state.allIds.length) {
 		return [];
 	}
 	const allCharts = state.allIds.map(id => {
-		console.info('found chart:', id, state.chartsById[id]);
 		return state.chartsById[id];
 	});
-	console.info('ALL CHARTS: ', allCharts);
 	return allCharts;
 };
 
@@ -112,8 +113,6 @@ export const getChartById = (state, id) => {
 	}
 	return state.chartsById[id];
 };
-
-
 
 
 // State Actions
@@ -130,14 +129,14 @@ export const removeChart = (id) => ({
 	id,
 });
 
-export const chartHappy = (id, date) => ({
-	type: chartActionTypes.CHART_HAPPY,
-	id,
-	date,
+export const chartAddEmote = (chartId, emoteId) => ({
+	type: chartActionTypes.CHART_ADD_EMOTE,
+	chartId,
+	emoteId,
 });
 
-export const chartSad = (id, date) => ({
-	type: chartActionTypes.CHART_SAD,
-	id,
-	date,
+export const chartRemoveEmote = (chartId, emoteId) => ({
+	type: chartActionTypes.CHART_REMOVE_EMOTE,
+	chartId,
+	emoteId,
 });

@@ -6,11 +6,17 @@ const actionTypes = {
 	CHART_UPDATE_EMOTE: 'CHART_UPDATE_EMOTE',
 };
 
+const EMPTY_CHART = {
+	name: '',
+	emotes: [],
+};
+
 export function chart(chart={}, action={}) {
 	switch (action.type) {
 		case actionTypes.CHART_ADD:
 			const {type, ...newChart} = action;
 			return {
+				...EMPTY_CHART,
 				...chart,
 				...newChart,
 			};
