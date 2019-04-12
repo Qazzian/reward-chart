@@ -23,7 +23,10 @@ export function chart(chart={}, action={}) {
 		case actionTypes.CHART_ADD_EMOTE:
 			return {
 				...chart,
-				emotes: chart.emotes.concat(action.emoteId),
+				emotes: [
+					...chart.emotes,
+					action.emoteId,
+				]
 			};
 		case actionTypes.CHART_REMOVE_EMOTE:
 			return {

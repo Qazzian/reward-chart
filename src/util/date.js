@@ -2,7 +2,7 @@ export const dateFormatOptions = {
   year: 'numeric',
   month: '2-diget',
   day: '2-diget',
-}
+};
 
 export function toDateString(date) {
 	if (date instanceof Date) {

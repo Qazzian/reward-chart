@@ -2,41 +2,33 @@ import React from 'react';
 import {connect} from 'react-redux';
 
 import {getAllCharts} from '../data/AppState';
-import {chartHappy, chartSad} from '../data/charts';
-import {addEmote, updateEmote, getEmoteById} from '../data/emotes';
+import {dispatchAddHappy, dispatchAddSad} from "../data/AppState";
 
 import ChartToday from './ChartToday/ChartToday';
 import NewChartContainer from '../components/newChart/NewChartContainer';
 
 function mapStateToProps (state) {
-	console.info('Today connector: ', state);
 	const charts = getAllCharts(state);
-	console.info('All charts: ', charts);
 	return {charts};
 }
 
 
 function mapDispatchToProps (dispatch) {
 	return {
-		onHappyClick: id => {
-			dispatch(chartHappy(id))
-		},
-		onSadClick: id => {
-			dispatch(chartSad(id))
-		}
+		onHappyClick: id => dispatchAddHappy(dispatch, id),
+		onSadClick: id => dispatchAddSad(dispatch, id),
 	}
 }
 
 
 function TodayChartList(props) {
-	console.info('TodayChartList props', props);
 	if (props.charts && props.charts.length > 0) {
 		return (<ChartList {...props} />);
 	}
 	else {
 		return (<EmptyPage/>);
 	}
-};
+}
 
 export default connect(
 	mapStateToProps,
@@ -52,10 +44,10 @@ const EmptyPage = () => (
 );
 
 const ChartList = (props) => props.charts.map((chart) => (
-	<ChartToday key={chart.name}
+	<ChartToday key={chart.id}
 		chart={chart}
-		onHappyClick={props.onHappyClick}
-		onSadClick={props.onSadClick}
+		onHappyClick={() => props.onHappyClick(chart.id)}
+		onSadClick={() => props.onSadClick(chart.id)}
 	/>
 ));
 

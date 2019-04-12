@@ -6,7 +6,7 @@ const actionTypes = {
 	EMOTE_UPDATE: 'EMOTE_UPDATE',
 };
 
-const emoteTypes = {
+export const EMOTE_TYPES = {
 	HAPPY: 'HAPPY',
 	SAD: 'SAD',
 };
@@ -55,12 +55,16 @@ export const emotes = combineReducers({
 });
 
 function emote(state = {}, action = {}) {
-	const {type, ...emoteData} = action;
+	const {type, ...actionData} = action;
 
 	const newEmote = {
 		...state,
-		...emoteData,
+		...actionData,
 	};
+
+	if (!newEmote.chartId || !newEmote.date) {
+		throw 'Emotes need a chartId and a date object';
+	}
 
 	const emoteId = newEmote.emoteId || generateKey(newEmote.chartId, newEmote.date);
 	return {
