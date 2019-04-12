@@ -5,7 +5,6 @@ import EmoteDay from './EmoteDay';
 
 const renderDecorator = (story) => <div style={{
 	maxWidth: '100px',
-	border: '1px solid #ccc'
 }}>
 	{story()}
 </div>

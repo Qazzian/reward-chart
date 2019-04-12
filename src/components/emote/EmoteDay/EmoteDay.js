@@ -1,8 +1,7 @@
 import React from 'react';
 
-
-import bem from '../../util/bem';
-import Emote from '../../atoms/emote/Emote';
+import bem from '../../../util/bem';
+import Emote from '../../../atoms/emote/Emote';
 import './EmoteDay.scss';
 
 export default ({date, emote, className}) => (
