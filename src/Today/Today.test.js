@@ -3,8 +3,6 @@ import { shallow } from "enzyme";
 
 import Today from './Today';
 
-jest.mock('./TodayConnector', () => () => <div id="mockTodayConnector">mock chart template</div>);
-
 describe('<Today/>', () => {
 	let mountedTodayComponent;
 

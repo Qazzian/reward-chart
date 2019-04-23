@@ -1,0 +1,103 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`charts state should Add and remove emotes to a chart 1`] = `
+Object {
+  "allIds": Array [
+    1,
+  ],
+  "chartsById": Object {
+    "1": Object {
+      "emotes": Array [
+        23,
+      ],
+      "id": 1,
+      "name": 123,
+    },
+  },
+  "nextId": 2,
+}
+`;
+
+exports[`charts state should Add and remove emotes to a chart 2`] = `
+Object {
+  "allIds": Array [
+    1,
+  ],
+  "chartsById": Object {
+    "1": Object {
+      "emotes": Array [
+        23,
+        45,
+      ],
+      "id": 1,
+      "name": 123,
+    },
+  },
+  "nextId": 2,
+}
+`;
+
+exports[`charts state should Add and remove emotes to a chart 3`] = `
+Object {
+  "allIds": Array [
+    1,
+  ],
+  "chartsById": Object {
+    "1": Object {
+      "emotes": Array [
+        23,
+        45,
+      ],
+      "id": 1,
+      "name": 123,
+    },
+  },
+  "nextId": 2,
+}
+`;
+
+exports[`charts state should Remove a chart from the list 1`] = `
+Object {
+  "allIds": Array [
+    1,
+  ],
+  "chartsById": Object {
+    "1": Object {
+      "emotes": Array [],
+      "id": 1,
+      "name": 123,
+    },
+  },
+  "nextId": 3,
+}
+`;
+
+exports[`charts state should add a Chart to the list 1`] = `
+Object {
+  "allIds": Array [
+    1,
+    2,
+  ],
+  "chartsById": Object {
+    "1": Object {
+      "emotes": Array [],
+      "id": 1,
+      "name": "test1",
+    },
+    "2": Object {
+      "emotes": Array [],
+      "id": 2,
+      "name": 987,
+    },
+  },
+  "nextId": 3,
+}
+`;
+
+exports[`charts state should return an empty chart list by default 1`] = `
+Object {
+  "allIds": Array [],
+  "chartsById": Object {},
+  "nextId": 1,
+}
+`;

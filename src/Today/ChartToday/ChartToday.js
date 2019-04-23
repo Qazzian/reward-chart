@@ -1,9 +1,11 @@
 import React from 'react';
 import './ChartToday.scss';
-import EmoteDay from '../EmoteDay/EmoteDay';
+
 import ButtonIcon from '../../atoms/buttons/ButtonIcon';
+import EmoteList from '../../components/emote/EmoteList';
 
 import bem from '../../util/bem';
+import {loopOverDays} from '../../util/date';
 
 const blockName = 'chartToday';
 
@@ -17,7 +19,7 @@ const ChartToday = ({ chart, onHappyClick, onSadClick }) => {
 			<h2 className='chartToday__title'>{chart.name}</h2>
 			<div className={bem(blockName, 'body')}>
 				<div className={bem(blockName, 'pastEmotes')}>
-					{renderEmoteList(chart.emotes)}
+					<EmoteList emoteIds={chart.emotes} />
 				</div>
 				<div className={bem(blockName, "emoteControls")}>
 					<ButtonIcon
@@ -45,27 +47,12 @@ export function subtractDays(date, days) {
 }
 
 export function fillMissingDays(emotes, days) {
-	const today = new Date();
 	const filledDays = [];
-	for (let index = 0; index < days; index++) {
+	loopOverDays(days, (currentDate) => {
 		filledDays.push({
-			date: subtractDays(today, index),
+			date: currentDate,
 			emote: '',
 		});
-	}
-
+	});
 	return filledDays;
-}
-
-function renderEmoteList(emotes) {
-	return emotes && emotes.map((emoteObj) => {
-			return (
-				<EmoteDay 
-					key={emoteObj.date}
-					date={emoteObj.date} 
-					emote={emoteObj.emote} 
-					className={bem(blockName, 'emoteDay')}
-				/>
-			)
-		});
 }

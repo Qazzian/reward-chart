@@ -50,9 +50,9 @@ class App extends Component {
 			<Provider store={this.store}>
 				<BrowserRouter>
 					<div className="App">
-            <PageTemplate>
-              <Routes/>
-            </PageTemplate>
+						<PageTemplate>
+						  <Routes/>
+						</PageTemplate>
 					</div>
 				</BrowserRouter>
 			</Provider>
