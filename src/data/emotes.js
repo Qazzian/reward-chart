@@ -63,7 +63,7 @@ function emote(state = {}, action = {}) {
 	};
 
 	if (!newEmote.chartId || !newEmote.date) {
-		throw 'Emotes need a chartId and a date object';
+		throw new Error('Emotes need a chartId and a date object');
 	}
 
 	const emoteId = newEmote.emoteId || generateKey(newEmote.chartId, newEmote.date);

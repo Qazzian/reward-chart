@@ -6,7 +6,7 @@ export function loadData() {
 	try {
 		const chartData = window.localStorage.getItem('charts');
 		if (chartData) {
-			return JSON.parse(chartData, revivier);
+			return JSON.parse(chartData, reviver);
 		}
 		else {
 			return undefined;
@@ -17,8 +17,7 @@ export function loadData() {
 	}
 }
 
-function revivier(key, value) {
-	console.info('revive', key, value);
+function reviver(key, value) {
 	if (key === 'date') {
 		return new Date(value);
 	}

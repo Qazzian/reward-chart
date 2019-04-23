@@ -1,3 +1,5 @@
+import {format, parse} from 'date-fns';
+
 export const dateFormatOptions = {
   year: 'numeric',
   month: '2-diget',
@@ -11,6 +13,19 @@ export function toDateString(date) {
 	else {
 		throw new Error(`expected Date object but got ${date}`)
 	}
+}
+
+export function toEmoteDateString(date) {
+	if (date instanceof Date) {
+		return format(date, 'YYYY-MM-DD');
+	}
+	else {
+		throw new Error(`expected Date object but got ${date}`)
+	}
+}
+
+export function fromEmoteDateString(dateString) {
+	return parse(dateString, 'YYYY-MM-DD');
 }
 
 export function subtractDays(date, days) {
