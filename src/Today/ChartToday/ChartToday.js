@@ -5,7 +5,7 @@ import ButtonIcon from '../../atoms/buttons/ButtonIcon';
 import EmoteList from '../../components/emote/EmoteList';
 
 import bem from '../../util/bem';
-import {toDateString, loopOverDays} from '../../util/date';
+import {loopOverDays} from '../../util/date';
 
 const blockName = 'chartToday';
 

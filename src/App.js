@@ -8,7 +8,7 @@ import NewChartContainer from './components/newChart/NewChartContainer';
 import Today from './Today/Today';
 import Charts from './components/Charts';
 import More from './components/More';
-import AppState, {addChart, addEmote} from './data/AppState';
+import AppState from './data/AppState';
 import ChartStore from './data/ChartStore';
 import {saveData, loadData} from './data/LocalStorage';
 
@@ -50,9 +50,9 @@ class App extends Component {
 			<Provider store={this.store}>
 				<BrowserRouter>
 					<div className="App">
-            <PageTemplate>
-              <Routes/>
-            </PageTemplate>
+						<PageTemplate>
+						  <Routes/>
+						</PageTemplate>
 					</div>
 				</BrowserRouter>
 			</Provider>

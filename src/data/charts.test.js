@@ -24,7 +24,6 @@ describe('charts state', function () {
 
 
 		const secondState = charts(firstState, fromCharts.addChart({name: 987}));
-		console.info('ChartList:', secondState);
 
 		expect(secondState).toMatchSnapshot();
 		const chartList2 = fromCharts.getAllCharts(secondState);
