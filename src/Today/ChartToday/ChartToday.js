@@ -1,15 +1,21 @@
 import React from 'react';
-import './ChartToday.scss';
+import {connect} from 'react-redux';
 
 import ButtonIcon from '../../atoms/buttons/ButtonIcon';
 import EmoteList from '../../components/emote/EmoteList';
 
 import bem from '../../util/bem';
-import {loopOverDays} from '../../util/date';
+
+import './ChartToday.scss';
+import {getLastXEmotes} from "../../data/AppState";
 
 const blockName = 'chartToday';
 
-const ChartToday = ({ chart, onHappyClick, onSadClick }) => {
+const mapStateToProps = (state, ownProps) => ({
+	emoteList: getLastXEmotes(state, ownProps.chart, 5),
+});
+
+const ChartToday = ({chart, emoteList, onHappyClick, onSadClick}) => {
 	if (!chart) {
 		return null;
 	}
@@ -19,18 +25,18 @@ const ChartToday = ({ chart, onHappyClick, onSadClick }) => {
 			<h2 className='chartToday__title'>{chart.name}</h2>
 			<div className={bem(blockName, 'body')}>
 				<div className={bem(blockName, 'pastEmotes')}>
-					<EmoteList emoteIds={chart.emotes} />
+					<EmoteList emoteIds={emoteList}/>
 				</div>
 				<div className={bem(blockName, "emoteControls")}>
 					<ButtonIcon
-						className={bem('chartToday', 'button', ['happy'])} 
+						className={bem('chartToday', 'button', ['happy'])}
 						onClick={() => onHappyClick(chart)}
-						emote="HAPPY" 
+						emote="HAPPY"
 					/>
 					<ButtonIcon
-						className={bem('chartToday', 'button', ['sad'])} 
+						className={bem('chartToday', 'button', ['sad'])}
 						onClick={() => onSadClick(chart)}
-						emote="SAD" 
+						emote="SAD"
 					/>
 				</div>
 			</div>
@@ -38,21 +44,4 @@ const ChartToday = ({ chart, onHappyClick, onSadClick }) => {
 	)
 };
 
-export default ChartToday;
-
-export function subtractDays(date, days) {
-	const newDate = new Date(date);
-	newDate.setDate(newDate.getDate() - days);
-	return newDate;
-}
-
-export function fillMissingDays(emotes, days) {
-	const filledDays = [];
-	loopOverDays(days, (currentDate) => {
-		filledDays.push({
-			date: currentDate,
-			emote: '',
-		});
-	});
-	return filledDays;
-}
+export default connect(mapStateToProps)(ChartToday);

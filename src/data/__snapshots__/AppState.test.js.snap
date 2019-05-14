@@ -5,6 +5,11 @@ Object {
   "charts": Object {
     "allIds": Array [],
     "chartsById": Object {},
+    "nextId": 1,
+  },
+  "emotes": Object {
+    "allIds": Array [],
+    "emotesById": Object {},
   },
 }
 `;

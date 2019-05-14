@@ -2,7 +2,7 @@ import { combineReducers } from 'redux';
 import * as fromCharts from './charts';
 import * as fromEmotes from './emotes';
 
-import {toEmoteDateString} from '../util/date';
+import {toEmoteDateString, loopOverDays} from '../util/date';
 
 // State
 
@@ -25,10 +25,22 @@ export const getEmote = (state, emoteId) =>
 export const getEmoteList = (state, emoteIds) =>
 	fromEmotes.getEmotesByIdList(state.emotes, emoteIds);
 
+export const getLastXEmotes = (state, chart, limit) => {
+	const emoteList = fromEmotes.getEmotesByIdList(state.emotes, chart.emotes);
+	const emoteStore = emoteList.reduce((obj, emote) => ({
+		...obj,
+		[emote.emoteId]: emote,
+	}), {});
+	let dayList = [];
+	loopOverDays(limit, (date) => {
+		const emoteDateStr = toEmoteDateString(date);
+		const currentKey = fromEmotes.generateKey(chart.id, emoteDateStr);
+		dayList.push(currentKey in emoteStore ? emoteStore[currentKey] : {date: emoteDateStr});
+	});
+	return dayList;
+};
 
 // Actions
-
-export const addChart = fromCharts.addChart;
 
 export function dispatchAddHappy(dispatch, chartId, date=(new Date())) {
 	dispatchAddEmote(dispatch, chartId, date, fromEmotes.EMOTE_TYPES.HAPPY);

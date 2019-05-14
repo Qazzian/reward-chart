@@ -1,4 +1,5 @@
 import {combineReducers} from 'redux';
+import {toEmoteDateString} from "../util/date";
 
 const actionTypes = {
 	EMOTE_ADD: 'EMOTE_ADD',
@@ -63,14 +64,24 @@ function emote(state = {}, action = {}) {
 	};
 
 	if (!newEmote.chartId || !newEmote.date) {
-		throw new Error('Emotes need a chartId and a date object');
+		throw new Error('Emotes need a chartId and a date string');
 	}
+
+	newEmote.date = validateDate(newEmote.date);
 
 	const emoteId = newEmote.emoteId || generateKey(newEmote.chartId, newEmote.date);
 	return {
 		...newEmote,
 		emoteId,
 	};
+}
+
+function validateDate(date) {
+	if (date instanceof Date) {
+		return toEmoteDateString(date);
+	}
+	// TODO finish me
+	return date;
 }
 
 // Accessors

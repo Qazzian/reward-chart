@@ -21,12 +21,15 @@ export function chart(chart={}, action={}) {
 				...newChart,
 			};
 		case actionTypes.CHART_ADD_EMOTE:
+			if (hasEmote(chart, action.emoteId)) {
+				return chart;
+			}
 			return {
 				...chart,
 				emotes: [
 					...chart.emotes,
 					action.emoteId,
-				]
+				],
 			};
 		case actionTypes.CHART_REMOVE_EMOTE:
 			return {
