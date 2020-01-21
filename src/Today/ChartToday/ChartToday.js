@@ -12,10 +12,10 @@ import {getLastXEmotes} from "../../data/AppState";
 const blockName = 'chartToday';
 
 const mapStateToProps = (state, ownProps) => ({
-	emoteList: getLastXEmotes(state, ownProps.chart, 5),
+	emoteList: getLastXEmotes(state, ownProps.chart, 16),
 });
 
-const ChartToday = ({chart, emoteList, onHappyClick, onSadClick}) => {
+export const ChartToday = ({chart, emoteList, onHappyClick, onSadClick}) => {
 	if (!chart) {
 		return null;
 	}

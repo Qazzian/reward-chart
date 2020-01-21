@@ -1,7 +1,7 @@
 import React from 'react';
 import { storiesOf } from '@storybook/react';
 import { action } from '@storybook/addon-actions';
-import ChartToday from './ChartToday';
+import {ChartToday} from './ChartToday';
 
 import * as helpers from './ChartToday.helper';
 

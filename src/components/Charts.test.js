@@ -11,7 +11,7 @@ describe('Chart components', () => {
 	});
 
 	it('should render a chart', (done) => {
-
+    expect(true).toBe(true);
 		done();
 	});
 });
