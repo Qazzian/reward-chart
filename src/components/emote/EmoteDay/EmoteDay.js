@@ -2,7 +2,7 @@ import React from 'react';
 
 import {fromEmoteDateString, toDateString} from '../../../util/date';
 import bem from '../../../util/bem';
-import Emote from '../../../atoms/emote/Emote';
+import Emote from '../Emote';
 import './EmoteDay.scss';
 
 export default ({date, emote, className}) => (

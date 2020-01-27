@@ -1,7 +1,7 @@
 import React from 'react';
 import {connect} from 'react-redux';
 
-import ButtonIcon from '../../atoms/buttons/ButtonIcon';
+import ButtonIcon from '../../components/buttons/ButtonIcon';
 import EmoteList from '../../components/emote/EmoteList';
 
 import bem from '../../util/bem';

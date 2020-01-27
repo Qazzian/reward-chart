@@ -6,8 +6,8 @@ import './buttons.scss';
 
 export default function({className, emote, altText, ...btnProps}){
 	return (
-		<button 
-			className={classnames('buttonIcon', className)} 
+		<button
+			className={classnames('buttonIcon', className)}
 			{...btnProps}
 		>
 			<Emote emote={emote} />
