@@ -48,7 +48,7 @@
 		"jest-enzyme": "^7.0.1",
 		"jest-plugin-clock": "^2.9.0",
 		"loki": "^0.14.2",
-		"node-sass": "^4.10.0",
+		"node-sass": "^7.0.0",
 		"react-test-renderer": "^16.6.3"
 	},
 	"loki": {
