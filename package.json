@@ -47,7 +47,7 @@
 		"enzyme-adapter-react-16": "^1.7.0",
 		"jest-enzyme": "^7.0.1",
 		"jest-plugin-clock": "^2.9.0",
-		"loki": "^0.14.2",
+		"loki": "^0.31.1",
 		"node-sass": "^4.10.0",
 		"react-test-renderer": "^16.6.3"
 	},
